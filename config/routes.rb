@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'all', to: 'todo_control#all'
+  post 'crea', to: 'todo_control#crea'
+  get 'all/:id', to: 'todo_control#all_id'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
