@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'all', to: 'todo_control#all'
-  post 'crea', to: 'todo_control#crea'
+  post 'create', to: 'todo_control#create'
   get 'all/:id', to: 'todo_control#all_id'
+  put 'all/:id', to: 'todo_control#options'
+  delete 'all/:id', to: 'todo_control#delete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
