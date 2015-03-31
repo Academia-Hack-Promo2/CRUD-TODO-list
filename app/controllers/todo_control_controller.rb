@@ -4,21 +4,22 @@ class TodoControlController < ApplicationController
 		todo = Todo.all
 		render json:todo
 	end
-	# crea un elemento(beta)
+	# crea un elemento
 	def create
 		t = Todo.new
+		t.update(permitir)
 		t.save
-		render json: t
+		render json: Todo.all
 	end
 	# muestra un elemento en especifico
 	def all_id
 		t = Todo.find(params[:id].to_i)
 		render json: t
 	end
-	# Actualiza un elemento del todo(beta)
+	# Actualiza un elemento del todo
 	def options
 		t = Todo.find(params[:id].to_i)
-		#t.permit()
+		t.update(permitir)
 		render json: t
 		
 	end
@@ -31,7 +32,7 @@ class TodoControlController < ApplicationController
 
 
 	private
-	def permit
-		params.require(:todo).permit(:text, :done)
+	def permitir
+		params.permit(:text, :done)
 	end
 end
